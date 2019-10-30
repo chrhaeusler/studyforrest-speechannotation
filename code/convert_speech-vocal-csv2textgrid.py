@@ -3,32 +3,20 @@
 author: Christian Olaf Haeusler
 created on Friday August 30 2019
 
-Protocoll:
-- forrestgump_researchcut_ad_ger.flac was mixed to mono to allow automatic alignment in praat
-
 textgrid format
 http://www.fon.hum.uva.nl/praat/manual/TextGrid_file_formats.html
 
-Working with Praat
-
-instert boundary: enter
+Working in Praat's GUI:
+insert boundary: enter
 del boundary: Alt + del
 play intervall: Tab
 
 """
-from datetime import datetime
-
 import csv
 import os
 import sys
 
-# constants
-#TO_FILL_INPUT = os.path.join(CONFIG_PATH, 'inputs/speech-vocal-music-by-sentence_for-praat.csv')
-# OUTPUT_FILE = os.path.join(CONFIG_PATH,
-#                            'forrestgump_researchcut_ad_ger.TextGrid') #_%s' % datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
 
-
-# functions
 def time_stamp_to_msec(t_stamp='01:50:34:01'):
     '''
     Input:
