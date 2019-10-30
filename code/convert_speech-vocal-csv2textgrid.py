@@ -20,11 +20,12 @@ from datetime import datetime
 
 import csv
 import os
+import sys
 
 # constants
-TO_FILL_INPUT = os.path.join(CONFIG_PATH, 'inputs/speech-vocal-music-by-sentence_for-praat.csv')
-OUTPUT_FILE = os.path.join(CONFIG_PATH,
-                           'forrestgump_researchcut_ad_ger.TextGrid') #_%s' % datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+#TO_FILL_INPUT = os.path.join(CONFIG_PATH, 'inputs/speech-vocal-music-by-sentence_for-praat.csv')
+# OUTPUT_FILE = os.path.join(CONFIG_PATH,
+#                            'forrestgump_researchcut_ad_ger.TextGrid') #_%s' % datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
 
 
 # functions
@@ -76,7 +77,11 @@ def sec_to_time_stamp(seconds=6634.040):
 # main programm
 if __name__ == "__main__":
     # read in annotation
-    with open(TO_FILL_INPUT) as csv_file:
+    inFile = sys.argv[1]
+    outFile = sys.argv[2]
+
+
+    with open(inFile) as csv_file:
         data = csv.reader(csv_file)
 
         # skip the file header
@@ -163,12 +168,7 @@ if __name__ == "__main__":
     ende[0] = ende[0].replace('##', str(intNr*2-1))
     text.extend(ende)
 
-    for line in text:
-        print(line)
-
     # write that shit to file
-    with open(OUTPUT_FILE, 'w', encoding='utf-16') as textGridFile:
+    with open(outFile, 'w', encoding='utf-16') as textGridFile:
         for line in text:
             textGridFile.write('%s\n' % line)
-
-    print('\nEnd of script.')
