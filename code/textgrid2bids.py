@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
     # write to csv
     outputFile = inFile.replace('.TextGrid', '.tsv')
-    header = ['start', 'duration', 'person', 'text',
+    header = ['onset', 'duration', 'person', 'text',
               'pos', 'tag', 'dep', 'lemma', 'stop',
               'descr', 'vector']
 
